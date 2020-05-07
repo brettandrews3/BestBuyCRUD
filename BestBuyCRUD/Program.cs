@@ -9,6 +9,25 @@ namespace BestBuyCRUD
     {
         static void Main(string[] args)
         {
+            ListProducts();
+
+            DeleteProduct();
+        }
+
+        public static void DeleteProduct()
+        {
+            ListProducts();
+
+            var prodRepo = new ProductRepository(conn);
+            Console.WriteLine($"Please enter the Product ID of the product you would like to delete:");
+            var productID = Convert.ToInt32(Console.ReadLine());
+
+            prodRepo.DeleteProduct(productID);
+
+            ListProducts();
+        }
+
+        {
             var departments = GetAllDepartments();
 
             foreach (var dept in departments)
